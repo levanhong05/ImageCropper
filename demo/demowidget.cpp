@@ -13,7 +13,7 @@ DemoWidget::DemoWidget(QWidget* _parent) :
     m_imageCropper = new ImageCropper(this);
     m_imageCropper->resize(600, 600);
     m_imageCropper->setProportion(QSize(1,1));
-    m_imageCropper->setImage(QPixmap::fromImage(QImage(":/splash.png")));
+    m_imageCropper->setImage(QPixmap::fromImage(QImage(":/img.jpg")));
     m_imageCropper->setBackgroundColor( Qt::lightGray );
     m_imageCropper->setCroppingRectBorderColor( Qt::magenta);
 
