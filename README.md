@@ -3,8 +3,6 @@ Image Cropper
 
 Qt Widget for cropping images.
 
-![Screenshot](http://dimkanovikov.pro/img/content/projects/image_cropper/1.png)
-
 Using:
 -------------
 
@@ -28,13 +26,11 @@ imageCropper->setBackgroundColor(Qt::lightGray);
 
 // Set border color of cropping rect helper
 imageCropper->setCroppingRectBorderColor(Qt::magenta);
-```
+
 
 And when you need crop image, just do it:
 
-```cpp
 QPixmap croppedImage = imageCropper->cropImage();
-```
 
 Build
 -------------
