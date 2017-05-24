@@ -39,7 +39,7 @@ QPixmap croppedImage = imageCropper->cropImage();
 Build
 -------------
 
-Qt 4.6 and greater, or Qt 5.1 and greater
+Qt 5.1 and greater
 
 License
 -------------

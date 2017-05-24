@@ -4,30 +4,31 @@
 #include "imagecropper_p.h"
 #include "imagecropper_e.h"
 
+#include "imagecropper_global.h"
+
 #include <QWidget>
 
-class ImageCropper : public QWidget
+class IMAGECROPPERSHARED_EXPORT ImageCropper : public QWidget
 {
     Q_OBJECT
-
 public:
     ImageCropper(QWidget *parent = 0);
     ~ImageCropper();
 
 public slots:
-    // Установить изображение для обрезки
+    // Set the image for cropping
     void setImage(const QPixmap& _image);
-    // Установить цвет фона виджета обрезки
+    // Set the background color of the crop widget
     void setBackgroundColor(const QColor& _backgroundColor);
-    // Установить цвет рамки области обрезки
+    // Set the border color of the cropping area
     void setCroppingRectBorderColor(const QColor& _borderColor);
-    // Установить пропорции области выделения
+    // Set the proportions of the selection area
     void setProportion(const QSizeF& _proportion);
-    // Использовать фиксированные пропорции области виделения
+    // Use fixed proportions of the selection area
     void setProportionFixed(const bool _isFixed);
 
 public:
-    // Обрезать изображение
+     // Crop image
     const QPixmap cropImage();
 
 protected:
@@ -37,41 +38,41 @@ protected:
     virtual void mouseReleaseEvent(QMouseEvent* _event);
 
 private:
-    // Определение местоположения курсора над виджетом
+    // Determining the location of the cursor over the widget
     CursorPosition cursorPosition(const QRectF& _cropRect, const QPointF& _mousePosition);
-    // Обновить иконку курсора соответствующую местоположению мыши
+    // Update cursor icon corresponding to mouse location
     void updateCursorIcon(const QPointF& _mousePosition);
 
-    // Получить размер виджета после его изменения мышью
+    // Get the size of the widget after it is changed by the mouse
     // --------
-    // Контракты:
-    // 1. Метод должен вызываться, только при зажатой кнопке мыши
-    //    (т.е. при перемещении или изменении размера виджета)
+    // Contracts:
+    // 1. The method should be called, only when the mouse button is pressed
+    // (ie when moving or resizing a widget)
     // --------
-    // В случае неудачи возвращает null-прямоугольник
+    // In case of failure, returns a null-rectangle
     const QRectF calculateGeometry(
             const QRectF& _sourceGeometry,
             const CursorPosition _cursorPosition,
             const QPointF& _mouseDelta
             );
-    // Получить размер виджета после его изменения мышью
-    // Метод изменяет виджет не сохраняя начальных пропорций сторон
+    // Get the size of the widget after it is changed by the mouse
+    // The method changes the widget without preserving the initial proportions of the sides
     // ------
-    // Контракты:
-    // 1. Метод должен вызываться, только при зажатой кнопке мыши
-    //    (т.е. при перемещении или изменении размера виджета)
+    // Contracts:
+    // 1. The method should be called, only when the mouse button is pressed
+    // (ie when moving or resizing a widget)
     const QRectF calculateGeometryWithCustomProportions(
             const QRectF& _sourceGeometry,
             const CursorPosition _cursorPosition,
             const QPointF& _mouseDelta
             );
 
-    // Получить размер виджета после его изменения мышью
-    // Метод изменяет виджет сохраняя начальные пропорции сторон
+    // Get the size of the widget after it is changed by the mouse
+    // The method changes the widget preserving the initial proportions of the sides
     // ------
-    // Контракты:
-    // 1. Метод должен вызываться, только при зажатой кнопке мыши
-    //    (т.е. при перемещении или изменении размера виджета)
+    // Contracts:
+    // 1. The method should be called, only when the mouse button is pressed
+    // (ie when moving or resizing a widget)
     const QRectF calculateGeometryWithFixedProportions(const QRectF &_sourceGeometry,
                                                  const CursorPosition _cursorPosition,
                                                  const QPointF &_mouseDelta,

@@ -1,5 +1,6 @@
 #include "demowidget.h"
-#include <imagecropper.h>
+
+#include "imagecropper.h"
 
 #include <QLabel>
 #include <QCheckBox>
@@ -9,7 +10,7 @@
 DemoWidget::DemoWidget(QWidget* _parent) :
     QWidget(_parent)
 {
-    // Настраиваем виджет обрезки изображений
+    // Set up the image crop widget
     m_imageCropper = new ImageCropper(this);
     m_imageCropper->resize(600, 600);
     m_imageCropper->setProportion(QSize(1,1));
@@ -17,18 +18,18 @@ DemoWidget::DemoWidget(QWidget* _parent) :
     m_imageCropper->setBackgroundColor( Qt::lightGray );
     m_imageCropper->setCroppingRectBorderColor( Qt::magenta);
 
-    // Использовать фиксированные пропорции
+    // Use fixed proportions
     QCheckBox* fixedProportionsCombo = new QCheckBox("Fix proportion to (4x3)", this);
     connect(fixedProportionsCombo, SIGNAL(toggled(bool)), m_imageCropper, SLOT(setProportionFixed(bool)));
 
-    // Кадрировать выделенную область
+    // Crop the selection
     QPushButton* cropBtn = new QPushButton("Crop", this);
     connect(cropBtn, SIGNAL(clicked()), this, SLOT(crop()));
 
-    // Область для вставки обрезанного изображения
+    // Area to insert the cropped image
     m_croppedImage = new QLabel(this);
 
-    // Настраиваем отображение
+    // Set up the display
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(m_imageCropper);
     layout->addWidget(fixedProportionsCombo);

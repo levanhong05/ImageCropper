@@ -29,29 +29,29 @@ public:
     {}
 
 public:
-    // Изображение для обрезки
+    // Trimming image
     QPixmap imageForCropping;
-    // Область обрезки
+    // Trimming area
     QRectF croppingRect;
-    // Последняя фиксированная область обрезки
+    // Last fixed trimming area
     QRectF lastStaticCroppingRect;
-    // Позиция курсора относительно области обрезки
+    // The cursor position relative to the cropping area
     CursorPosition cursorPosition;
-    // Зажата ли левая кнопка мыши
+    // Is the left mouse button pressed?
     bool isMousePressed;
-    // Фиксировать пропорции области обрезки
+    // Fix the proportions of the cropping area
     bool isProportionFixed;
-    // Начальная позиция курсора при изменении размера области обрезки
+    // Starting position of the cursor when changing the size of the cropping area
     QPointF startMousePos;
-    // Пропорции
+    // Proportions
     QSizeF proportion;
-    // Приращения
-    // width  - приращение по x
-    // height - приращение по y
+    // Increments
+    // width  - X increment
+    // height - Y increment
     QSizeF deltas;
-    // Цвет заливки фона под изображением
+    // The color of the background fill under the image
     QColor backgroundColor;
-    // Цвет рамки области обрезки
+    // Crop area border color
     QColor croppingRectBorderColor;
 };
 

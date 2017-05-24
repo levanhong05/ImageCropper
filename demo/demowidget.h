@@ -8,18 +8,16 @@ class QLabel;
 
 class DemoWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	explicit DemoWidget(QWidget* _parent = 0);
-	
-signals:
-	
+    explicit DemoWidget(QWidget* _parent = 0);
+
 private slots:
-	void crop();
-	
+    void crop();
+
 private:
-	ImageCropper* m_imageCropper;
-	QLabel* m_croppedImage;
+    ImageCropper* m_imageCropper;
+    QLabel* m_croppedImage;
 };
 
 #endif // DEMOWIDGET_H
